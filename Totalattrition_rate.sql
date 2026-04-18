@@ -1,0 +1,5 @@
+SELECT 
+  COUNT(*) AS total_employees,
+  SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) AS left_company,
+  ROUND(SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*), 2) AS attrition_rate
+FROM hr_data;
